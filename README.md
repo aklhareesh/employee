@@ -64,12 +64,7 @@ Employee Details with company information  Url => http://127.0.0.1:8000/api/user
         }
     },
     
-    
-  curl --location --request GET 'http://127.0.0.1:8000/api/users' \
---header 'Authorization: Bearer 3|qUyU46ltzVzzLq86vUz49QauJS9NAIfWmGwC8dS8abcd65db' \
---header 'Cookie: XSRF-TOKEN=eyJpdiI6IkpiVkJWZmk4eWh4N0ppL042WHE2WGc9PSIsInZhbHVlIjoiTm96bDN0TWpEUFpaSU1SOS9mZVRqZ1lRWEFRZUpmdVNCQTdrcmQ2REFoWm53a3B6M0RVQzRyUnlRYk5RVk1JRzFtR2VUWDMrQXcxVWowQVhLWFJxaUNFMGMzMUFzakp4NDlnUnBXZ3preFV4c2taYmRYTjBrQnVMVzA3T29CUkwiLCJtYWMiOiJjNjdkODhkZGM1NjFlZDk3ZDE4OTIxZWEzNmMxOTg0NDRmZjMxMTc3MzhiN2Y5MDM3MTY3ZWIxMWFkM2I0OWZjIiwidGFnIjoiIn0%3D; laravel_session=eyJpdiI6IkQ0ZGpBM1BIOFJnRysyODV1a1NCNkE9PSIsInZhbHVlIjoiTzBjbmI4NzJvWXZzUHdEWk80OGRYdHpORFRrbk5Rd0R1SEQvZTdybXNtYW5RKzZ2V04yOGpyelhBYXJWR0RQb2tsWitEeXJ1RHVrWFNGbk1xT0VKVUdFd1lzQVZ5aVM5RHRCYms0bE5ZUVlSVzhIMk15RUNXZTlJcHlKbU5xUlAiLCJtYWMiOiIwZGE4MGFkOGI3NjU4N2Q2YjlhODZhYzYxMzQyNjQyNDcwNTllOTM4YjBmNWRjYzUyNTFmOGUwZGE4ODUzYjFjIiwidGFnIjoiIn0%3D' \
---form 'email="admin@admin.com"' \
---form 'password="password"'
+ 
     
     
     
