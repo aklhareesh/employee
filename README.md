@@ -1,66 +1,76 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+                      TASK DESCRIPTION 
+Basic Laravel Auth: ability to log in as administrator
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Use database seeds to create first user with email admin@admin.com and password “password”
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+CRUD functionality (Create / Read / Update / Delete) for two menu items: Companies and Employees.
 
-## Learning Laravel
+Companies DB table consists of these fields: Name (required), email, logo (minimum 100×100), website
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Employees DB table consists of these fields: First name (required), last name (required), Company (foreign key to Companies), email, phone
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Use database migrations to create those schemas above
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Store companies logos in storage/app/public folder and make them accessible from public
 
-## Laravel Sponsors
+Use basic Laravel resource controllers with default methods – index, create, store etc.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Use Laravel’s validation function, using Request classes
 
-### Premium Partners
+Use Laravel’s pagination for showing Companies/Employees list, 10 entries per page
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+Use Laravel make:auth as default Bootstrap-based design theme, but remove ability to register	
+						
+API with authentication (user listing with company details after logged in)	
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-## Code of Conduct
+  APi Documenaion 
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+  Login Url => http://127.0.0.1:8000/api/login
+  -->With Valid email and password make authentication and create a token 
+  
+  After Successfull Login
+  
+  {
+    "message": "Authenticated User",
+    "token": "3|qUyU46ltzVzzLq86vUz49QauJS9NAIfWmGwC8dS8abcd65db"
+  }
+  
+Employee Details with company information  Url => http://127.0.0.1:8000/api/users
 
-## Security Vulnerabilities
+-->Successfull authentication with token can access employee infirmation
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+{
+        "id": 1,
+        "first_name": "sdsa",
+        "last_name": "fsdfsd",
+        "company_id": 6,
+        "email": "hareeshr@am.amrita.edu",
+        "phone": "94968284032",
+        "created_at": "2023-10-18T11:20:28.000000Z",
+        "updated_at": "2023-10-18T11:20:28.000000Z",
+        "company": {
+            "id": 6,
+            "name": "Hareesh",
+            "email": "hareeshr@am.amrita.edu",
+            "logo": "logos/DfH9lyOcjoO7pRRhc8Nqf0J1tFBRABwApJJLr8Bl.jpg",
+            "website": null,
+            "created_at": "2023-10-18T10:21:55.000000Z",
+            "updated_at": "2023-10-18T10:21:55.000000Z"
+        }
+    },
+    
+    
+  curl --location --request GET 'http://127.0.0.1:8000/api/users' \
+--header 'Authorization: Bearer 3|qUyU46ltzVzzLq86vUz49QauJS9NAIfWmGwC8dS8abcd65db' \
+--header 'Cookie: XSRF-TOKEN=eyJpdiI6IkpiVkJWZmk4eWh4N0ppL042WHE2WGc9PSIsInZhbHVlIjoiTm96bDN0TWpEUFpaSU1SOS9mZVRqZ1lRWEFRZUpmdVNCQTdrcmQ2REFoWm53a3B6M0RVQzRyUnlRYk5RVk1JRzFtR2VUWDMrQXcxVWowQVhLWFJxaUNFMGMzMUFzakp4NDlnUnBXZ3preFV4c2taYmRYTjBrQnVMVzA3T29CUkwiLCJtYWMiOiJjNjdkODhkZGM1NjFlZDk3ZDE4OTIxZWEzNmMxOTg0NDRmZjMxMTc3MzhiN2Y5MDM3MTY3ZWIxMWFkM2I0OWZjIiwidGFnIjoiIn0%3D; laravel_session=eyJpdiI6IkQ0ZGpBM1BIOFJnRysyODV1a1NCNkE9PSIsInZhbHVlIjoiTzBjbmI4NzJvWXZzUHdEWk80OGRYdHpORFRrbk5Rd0R1SEQvZTdybXNtYW5RKzZ2V04yOGpyelhBYXJWR0RQb2tsWitEeXJ1RHVrWFNGbk1xT0VKVUdFd1lzQVZ5aVM5RHRCYms0bE5ZUVlSVzhIMk15RUNXZTlJcHlKbU5xUlAiLCJtYWMiOiIwZGE4MGFkOGI3NjU4N2Q2YjlhODZhYzYxMzQyNjQyNDcwNTllOTM4YjBmNWRjYzUyNTFmOGUwZGE4ODUzYjFjIiwidGFnIjoiIn0%3D' \
+--form 'email="admin@admin.com"' \
+--form 'password="password"'
+    
+    
+    
+    
